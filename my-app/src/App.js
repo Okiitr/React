@@ -2,15 +2,16 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Textarea from "./components/Textarea";
+import { useState } from "react";
 
 function App() {
 
-  const[Mode, setMode] = useState('light');
+  const [Mode, setMode] = useState('light');
 
   const toggleMode = () => {
-    if (mode === 'light') {
+    if (Mode === 'light') {
         setMode('dark');
-        document.body.style.backgroundColor = 'blue';
+        document.body.style.backgroundColor = 'red';
     }
     else {
         setMode('light');
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <>
-    <Navbar heading="Oman" about ="About" toggleMode={toggleMode}/>
+    <Navbar heading="Oman" about ="About" mode={Mode} toggleMode={toggleMode}/>
     <div className="container my-3">
     <Textarea head="Enter Text Here" mode={Mode}/>
     </div>
