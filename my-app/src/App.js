@@ -6,7 +6,7 @@ import { useState } from "react";
 import Alert from "./components/Alert";
 
 function App() {
-  const [alert, setAlert] = useState(null);
+  const [alert, setAlert] = useState(null);         /* define state initial value is null*/
 
   const showAlert = (message, type) => {
     setAlert({
@@ -32,20 +32,11 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar
-        heading="TextUtills"
-        about="About"
-        mode={mode}
-        toggleMode={toggleMode}
-      />
+    <>   {/* used to make a single component in app.js */}
+      <Navbar heading="TextUtills" /* about="About"*/ mode={mode}  toggleMode={toggleMode}  />  
       <Alert alert={alert} />
       <div className="container my-3">
-        <Textarea
-          showAlert={showAlert}
-          heading="Enter the text to Analyze below"
-          mode={mode}
-        />
+        <Textarea  showAlert={showAlert}  heading="Enter the text to Analyze below"   mode={mode} />
       </div>
     </>
   );
