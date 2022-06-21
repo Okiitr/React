@@ -50,15 +50,15 @@ const handleClear = () => {
 
         <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{ backgroundColor: props.mode === 'dark' ? '#20262d': 'white', color: props.mode === 'dark' ? 'white' : 'black' }}></textarea>
       
-        <button className="btn btn-primary my-2" onClick={changeToUpper} >Convert to Uppercase</button>
-        <button className="btn btn-primary my-2 mx-2" onClick={changeToLower}>Convert to lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove extra spaces</button>
-        <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
-        <button className="btn btn-primary mx-1" onClick={handleClear}>Clear Text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={changeToUpper} >Convert to Uppercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={changeToLower}>Convert to lowercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove extra spaces</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClear}>Clear Text</button>
       </div>
       <div className="container my-4" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
         <h2>You Text Summary</h2>
-        <p>There are {text.split(" ").length} words and {text.length} characters in your text</p>
+        <p>There are {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters in your text</p>
       </div>
        <div className="container my-4" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
           <h2>Preview</h2>
